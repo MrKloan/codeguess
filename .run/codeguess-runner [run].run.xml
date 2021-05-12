@@ -1,0 +1,17 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="codeguess-runner [run]" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="codeguess-runner" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="io.fries.codeguess.runner.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <option name="SPRING_BOOT_MAIN_CLASS" value="io.fries.codeguess.runner.Application" />
+    <option name="PROGRAM_PARAMETERS" value="--plugin-path=codeguess-example-plugin/target/codeguess-example-plugin-0.0.1-SNAPSHOT.jar --plugin-main=io.fries.codeguess.example.RandomGuesser" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

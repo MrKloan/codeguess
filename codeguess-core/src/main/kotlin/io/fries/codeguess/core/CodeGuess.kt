@@ -2,16 +2,16 @@ package io.fries.codeguess.core
 
 import io.fries.codeguess.pdk.Guesser
 
-class Game(
+class CodeGuess(
         private val messager: Messager,
         private val guesser: Guesser
 ) {
     fun run(target: Int) {
         while (true) {
-            val attempt = guesser.guess()
-            messager.send("Attempting to guess target number: $attempt?")
+            val guess = guesser.guess()
+            messager.send("Attempting to guess target number: $guess?")
 
-            if (attempt == target) {
+            if (guess == target) {
                 messager.send("Target number found! It was $target.")
                 break
             }

@@ -1,6 +1,7 @@
-package io.fries.codeguess.core
+package io.fries.codeguess.runner
 
 import io.fries.codeguess.pdk.Guesser
+import java.lang.IllegalArgumentException
 import java.net.URL
 import java.net.URLClassLoader
 import java.nio.file.Path
