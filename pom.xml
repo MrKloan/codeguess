@@ -19,7 +19,7 @@
     <modules>
         <module>codeguess-core</module>
         <module>codeguess-pdk</module>
-        <module>codeguess-example-plugin</module>
+        <module>codeguess-pdk-example</module>
         <module>codeguess-runner</module>
     </modules>
 

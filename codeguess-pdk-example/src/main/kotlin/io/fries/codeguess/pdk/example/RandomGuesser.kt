@@ -1,4 +1,4 @@
-package io.fries.codeguess.example
+package io.fries.codeguess.pdk.example
 
 import io.fries.codeguess.pdk.Guesser
 import kotlin.random.Random

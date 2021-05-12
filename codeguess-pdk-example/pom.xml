@@ -11,7 +11,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>codeguess-example-plugin</artifactId>
+    <artifactId>codeguess-pdk-example</artifactId>
 
     <dependencies>
         <dependency>
