@@ -1,16 +1,20 @@
 package io.fries.k8s.game.core
 
-import org.springframework.boot.CommandLineRunner
-import org.springframework.boot.autoconfigure.SpringBootApplication
+import io.fries.k8s.game.pdk.Guesser
 
-@SpringBootApplication
-class Game : CommandLineRunner {
+class Game(
+        private val messager: Messager,
+        private val guesser: Guesser
+) {
+    fun run(target: Int) {
+        while (true) {
+            val attempt = guesser.guess()
+            messager.send("Attempting to guess target number: $attempt?")
 
-    override fun run(vararg args: String?) {
-        println("K8s Game")
+            if (attempt == target) {
+                messager.send("Target number found! It was $target.")
+                break
+            }
+        }
     }
-}
-
-fun main(args: Array<String>) {
-    Game().run(*args)
 }

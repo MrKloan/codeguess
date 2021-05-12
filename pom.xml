@@ -18,6 +18,7 @@
 
     <modules>
         <module>k8s-game-core</module>
+        <module>k8s-game-pdk</module>
     </modules>
 
     <properties>
