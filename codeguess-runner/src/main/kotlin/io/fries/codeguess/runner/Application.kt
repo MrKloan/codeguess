@@ -1,5 +1,8 @@
 package io.fries.codeguess.runner
 
+import io.fries.codeguess.amqp.AmqpConfiguration
+import io.fries.codeguess.amqp.Receiver
+import io.fries.codeguess.amqp.Sender
 import io.fries.codeguess.core.CodeGuess
 import io.fries.codeguess.core.Messager
 import io.fries.codeguess.pdk.Guesser
@@ -7,12 +10,14 @@ import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.context.annotation.Import
 import kotlin.random.Random
 import kotlin.system.exitProcess
 
 @SpringBootApplication
+@Import(AmqpConfiguration::class)
 class Application(
-        private val messager: Messager = LogMessager()
+        private val messager: Messager
 ) : ApplicationRunner {
 
     override fun run(args: ApplicationArguments) {
@@ -44,5 +49,5 @@ class Application(
 }
 
 fun main(args: Array<String>) {
-    SpringApplication.run(Application::class.java, *args)
+    SpringApplication.run(Application::class.java, *args).close()
 }
