@@ -8,8 +8,11 @@
       </pattern>
     </extension>
     <option name="SPRING_BOOT_MAIN_CLASS" value="io.fries.codeguess.runner.Application" />
-    <option name="PROGRAM_PARAMETERS" value="--plugin-path=codeguess-pdk-example/target/codeguess-pdk-example-0.0.1-SNAPSHOT.jar --plugin-main=io.fries.codeguess.pdk.example.RandomGuesser" />
     <option name="ALTERNATIVE_JRE_PATH" />
+    <envs>
+      <env name="PLUGIN_PATH" value="codeguess-pdk-example/target/codeguess-pdk-example-0.0.1-SNAPSHOT.jar" />
+      <env name="PLUGIN_MAIN" value="io.fries.codeguess.pdk.example.RandomGuesser" />
+    </envs>
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

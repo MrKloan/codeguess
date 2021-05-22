@@ -1,14 +1,17 @@
 package io.fries.codeguess.runner
 
 import io.fries.codeguess.pdk.Guesser
+import org.springframework.beans.factory.annotation.Value
+import org.springframework.stereotype.Component
 import java.lang.IllegalArgumentException
 import java.net.URL
 import java.net.URLClassLoader
 import java.nio.file.Path
 
+@Component
 data class Plugin(
-        private val filePath: String,
-        private val mainClass: String
+        @Value("\${PLUGIN_PATH}") private val filePath: String,
+        @Value("\${PLUGIN_MAIN}") private val mainClass: String
 ) {
     fun load(): Guesser {
         val classPathUrl: URL = Path.of(filePath).toUri().toURL()

@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  codeguess-runner:
+    depends_on:
+      - rabbitmq
+    build:
+      context: .
+      dockerfile: codeguess-runner/Dockerfile
+    environment:
+      RABBITMQ_HOST: rabbitmq
+      PLUGIN_PATH: plugins/codeguess-pdk-example-0.0.1-SNAPSHOT.jar
+      PLUGIN_MAIN: io.fries.codeguess.pdk.example.RandomGuesser
+    volumes:
+      - ${pwd}/codeguess-pdk-example/target:/opt/codeguess/plugins
+  codeguess-api:
+    depends_on:
+      - rabbitmq
+    build:
+      context: .
+      dockerfile: codeguess-api/Dockerfile
+    environment:
+      RABBITMQ_HOST: rabbitmq
+    ports:
+      - "8080:8080"
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "15672:15672"
